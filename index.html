@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="calculator-wrapper">
+            <h1>Advanced Calculator</h1>
+            
+            <div class="display-section">
+                <input type="text" id="display" class="display" readonly placeholder="Enter expression...">
+                <div class="result-section">
+                    <span class="result-label">Result:</span>
+                    <span id="result" class="result">0</span>
+                </div>
+            </div>
+
+            <div class="buttons-section">
+                <div class="button-group">
+                    <div class="input-buttons">
+                        <button class="btn btn-number" onclick="appendChar('7')">7</button>
+                        <button class="btn btn-number" onclick="appendChar('8')">8</button>
+                        <button class="btn btn-number" onclick="appendChar('9')">9</button>
+                        <button class="btn btn-operator" onclick="appendChar('/')">/</button>
+                        <button class="btn btn-function" onclick="appendFunction('sqrt')">√</button>
+
+                        <button class="btn btn-number" onclick="appendChar('4')">4</button>
+                        <button class="btn btn-number" onclick="appendChar('5')">5</button>
+                        <button class="btn btn-number" onclick="appendChar('6')">6</button>
+                        <button class="btn btn-operator" onclick="appendChar('*')">×</button>
+                        <button class="btn btn-function" onclick="appendChar('^')">^</button>
+
+                        <button class="btn btn-number" onclick="appendChar('1')">1</button>
+                        <button class="btn btn-number" onclick="appendChar('2')">2</button>
+                        <button class="btn btn-number" onclick="appendChar('3')">3</button>
+                        <button class="btn btn-operator" onclick="appendChar('-')">−</button>
+                        <button class="btn btn-function" onclick="appendFunction('fact')">n!</button>
+
+                        <button class="btn btn-number" onclick="appendChar('0')">0</button>
+                        <button class="btn btn-number" onclick="appendChar('.')">.</button>
+                        <button class="btn btn-operator" onclick="appendChar('+')">+</button>
+                        <button class="btn btn-operator" onclick="appendChar('%')">%</button>
+                        <button class="btn btn-equals" onclick="calculate()">=</button>
+                    </div>
+
+                    <div class="function-buttons">
+                        <h3>Trigonometric</h3>
+                        <button class="btn btn-func-small" onclick="appendFunction('sin')">sin</button>
+                        <button class="btn btn-func-small" onclick="appendFunction('cos')">cos</button>
+                        <button class="btn btn-func-small" onclick="appendFunction('tan')">tan</button>
+                        <button class="btn btn-func-small" onclick="appendFunction('asin')">asin</button>
+                        <button class="btn btn-func-small" onclick="appendFunction('acos')">acos</button>
+                        <button class="btn btn-func-small" onclick="appendFunction('atan')">atan</button>
+
+                        <h3>Logarithmic</h3>
+                        <button class="btn btn-func-small" onclick="appendFunction('log')">log</button>
+                        <button class="btn btn-func-small" onclick="appendFunction('log2')">log₂</button>
+                        <button class="btn btn-func-small" onclick="appendFunction('log10')">log₁₀</button>
+                        <button class="btn btn-func-small" onclick="appendFunction('exp')">eˣ</button>
+
+                        <h3>Other Functions</h3>
+                        <button class="btn btn-func-small" onclick="appendFunction('abs')">|x|</button>
+                        <button class="btn btn-func-small" onclick="appendFunction('cbrt')">∛</button>
+                        <button class="btn btn-func-small" onclick="appendFunction('ceil')">ceil</button>
+                        <button class="btn btn-func-small" onclick="appendFunction('floor')">floor</button>
+                        <button class="btn btn-func-small" onclick="appendFunction('round')">round</button>
+                        <button class="btn btn-func-small" onclick="appendFunction('deg')">°</button>
+                        <button class="btn btn-func-small" onclick="appendFunction('rad')">rad</button>
+
+                        <h3>Constants</h3>
+                        <button class="btn btn-const" onclick="appendChar('pi')">π</button>
+                        <button class="btn btn-const" onclick="appendChar('e')">e</button>
+                        <button class="btn btn-const" onclick="appendChar('ans')">ans</button>
+
+                        <h3>Memory</h3>
+                        <button class="btn btn-memory" onclick="storeMemory()">Store</button>
+                        <button class="btn btn-memory" onclick="recallMemory()">Recall</button>
+                        <button class="btn btn-memory" onclick="clearMemory()">MClear</button>
+                    </div>
+                </div>
+
+                <div class="control-buttons">
+                    <button class="btn btn-clear" onclick="clearDisplay()">C</button>
+                    <button class="btn btn-backspace" onclick="backspace()">←</button>
+                    <button class="btn btn-parens" onclick="appendChar('(')">(</button>
+                    <button class="btn btn-parens" onclick="appendChar(')')">)</button>
+                    <button class="btn btn-history" onclick="toggleHistory()">History</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <div class="history-panel" id="historyPanel">
+                <h3>Calculation History</h3>
+                <div class="history-list" id="historyList"></div>
+                <button class="btn btn-clear-history" onclick="clearHistory()">Clear History</button>
+            </div>
+
+            <div class="memory-panel">
+                <h3>Memory Value</h3>
+                <div class="memory-display" id="memoryDisplay">0</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="calculator.js"></script>
+</body>
+</html>
